@@ -41,7 +41,7 @@ public class DetectDupeModel {
     /**
      * Filter the inbound raw result to only include those keys that appear more than once.
      */
-    private HashMap<Integer, Integer> filterResult(HashMap<Integer, Integer> rawResult) {
+    private HashMap<Integer, Integer> filterResult(Map<Integer, Integer> rawResult) {
         HashMap<Integer, Integer> filteredMap = new HashMap<>();
         ;
         for (Map.Entry<Integer, Integer> entry : rawResult.entrySet()) {

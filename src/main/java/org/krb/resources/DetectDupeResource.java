@@ -5,16 +5,14 @@ import org.krb.model.IntegerSetResponse;
 import org.krb.services.DetectDupeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
-import static javax.ws.rs.core.Response.ok;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 
 /**
@@ -44,7 +42,7 @@ public class DetectDupeResource {
      * @param requestMessage the request message
      * @return the response entity
      */
-    @RequestMapping(value = "/set", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/set", method = RequestMethod.POST)
     //
     public ResponseEntity<IntegerSetResponse> processIntegerSet(@RequestBody IntegerSetRequest requestMessage) {
         log.debug(" *** Message Rx IntegerSet ");
@@ -54,4 +52,11 @@ public class DetectDupeResource {
     }
 
 
+    @Override
+    public String toString() {
+        return "DetectDupeResource{" +
+                "detectDupeService=" + detectDupeService +
+                ", requestMessage=" + requestMessage +
+                '}';
+    }
 }
